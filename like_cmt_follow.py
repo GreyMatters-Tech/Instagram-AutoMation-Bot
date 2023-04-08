@@ -19,14 +19,14 @@ def main():
     browser.get("https://www.instagram.com")
     sleep_for_period_of_time()
 
-    username_input = browser.find_element_by_css_selector("input[name='username']")
-    password_input = browser.find_element_by_css_selector("input[name='password']")
+    username_input = browser.find_element(By.CSS_SELECTOR, "input[name='username']")
+    password_input = browser.find_element(By.CSS_SELECTOR, "input[name='password']")
 
     username_input.send_keys(user)
     password_input.send_keys(pwd)
     sleep_for_period_of_time()
 
-    login_button = browser.find_element_by_xpath("//button[@type='submit']")
+    login_button = browser.find_element("xpath", "//button[@type='submit']")
     login_button.click()
     sleep_for_period_of_time()
 
@@ -34,7 +34,7 @@ def main():
     browser.get(f"https://www.instagram.com/explore/tags/{hashtag}")
     sleep_for_period_of_time()
 
-    first_pic = browser.find_element_by_xpath("//div[@class='_aaq8']/div/div/div[1]/div[1]/a")
+    first_pic = browser.find_element("xpath", "//div[@class='_aaq8']/div/div/div[1]/div[1]/a")
     first_pic.click()
 
     num_post = input("How many post you want to like and leave a comment: ")
@@ -44,15 +44,15 @@ def main():
     for i in range(int(num_post)):
 
         # Like a post 
-        like_post = browser.find_element_by_xpath("//section[@class= '_aamu _aat0']/span[1]/button")
+        like_post = browser.find_element("xpath", "//section[@class= '_aamu _aat0']/span[1]/button")
         like_post.click()
         print("Liked!")
         sleep_for_period_of_time()
 
         #Comment on a post
-        cmmt_post = browser.find_element_by_xpath("//textarea[@class='_ablz _aaoc']")
+        cmmt_post = browser.find_element("xpath", "//textarea[@class='_ablz _aaoc']")
         cmmt_post.click()
-        cmmt_post = browser.find_element_by_xpath("//textarea[@class='_ablz _aaoc focus-visible']")
+        cmmt_post = browser.find_element("xpath", "//textarea[@class='_ablz _aaoc focus-visible']")
         cmmt_post.send_keys(cmmt)
         cmmt_post.send_keys(Keys.ENTER)
         print("Commented!")
@@ -68,7 +68,7 @@ def main():
             pass
         
         #Move on to the next Post
-        next_post = browser.find_element_by_xpath("//button[@class='_abl-']//*[name()='svg' and @aria-label='Next']")
+        next_post = browser.find_element("xpath", "//button[@class='_abl-']//*[name()='svg' and @aria-label='Next']")
         next_post.click()
         print("post " + str(i) + " done!")
         print("Next!")
