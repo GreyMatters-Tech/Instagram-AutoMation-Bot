@@ -48,7 +48,7 @@ def main():
     while(True):
         try:
             i = 0
-            list_of_following = browser.find_elements(By.XPATH, '//button/div/div[contains(text(), "Following")]')
+            list_of_following = browser.find_elements("xpath", '//button/div/div[contains(text(), "Following")]')
             for person in list_of_following:
                 if person.text == "Following":
                     person.click()
