@@ -59,7 +59,7 @@ def main():
         time.sleep(5)
 
         #Follow the user of the post
-        follow_user = browser.find_element(By.XPATH, '//button/div/div[contains(text(), "Follow")]')
+        follow_user = browser.find_element("xpath", '//button/div/div[contains(text(), "Follow")]')
         if follow_user.text == "Follow":
             follow_user.click()
             print("Followed!")
