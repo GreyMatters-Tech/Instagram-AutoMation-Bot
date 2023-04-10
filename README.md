@@ -10,3 +10,6 @@
    pip install -r requirements.txt<br/><br/>
  •	Watch This Full Tutorial on How to use this Bot Step by Step<br/>
    > 
+
+Credits -
+- [BOWBOW0609](https://github.com/BOWBOW0609) for fixing the buttons.
