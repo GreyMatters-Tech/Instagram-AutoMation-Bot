@@ -46,7 +46,7 @@ def main():
     for i in range(int(num_post)):
 
         # Like a post 
-        like_post = wait.until(EC.presence_of_element_located((By.XPATH, "//button[contains(@class, '_8-yf5')]/span[@class='_15y0l']")))
+        like_post = browser.find_element(By.XPATH, "//button[contains(@class, '_8-yf5')]/span[@class='_15y0l']")
         like_post.click()
         print("Liked!")
         sleep_for_period_of_time()
@@ -54,20 +54,21 @@ def main():
         #Comment on a post
         cmmt_post = browser.find_element(By.XPATH, "//textarea[@class='_2-a2iV _29SDf']")
         cmmt_post.click()
-        cmmt_post = browser.find_element(By.XPATH,
+        cmmt_post.clear()
+        cmmt_post.send_keys(cmmt)
+        cmmt_post.send_keys(Keys.RETURN)
+        print("Commented!")
+        sleep_for_period_of_time()
 
-    else:
-        pass
-        
         #Move on to the next Post
         next_post = browser.find_element(By.XPATH, "//button[@class='_abl-']//*[name()='svg' and @aria-label='Next']")
         next_post.click()
-        print("post " + str(i) + " done!")
+        print("post " + str(i+1) + " done!")
         print("Next!")
         sleep_for_period_of_time()
 
     #Quit the Program
-    answer = input("The programm finished! Click on 'e' to exit.. ")
+    answer = input("The program finished! Click on 'e' to exit.. ")
     if answer.lower().startswith("e"):
         browser.quit()
         exit()
